@@ -2,7 +2,7 @@
 % Please edit documentation in R/qstat_summary.R
 \name{qstat_summary}
 \alias{qstat_summary}
-\title{General Statistical Summary}
+\title{General Statistical Summary for a Numeric Vector}
 \usage{
 qstat_summary(x, removeNA = FALSE, verbose = FALSE, ...)
 }
@@ -19,7 +19,7 @@ qstat_summary(x, removeNA = FALSE, verbose = FALSE, ...)
 A tibble consisting of seven columns and a single row, where the entry for each column is a calculated general statistic (mean, standard deviation, extrema and quartiles) for the input numeric vector.
 }
 \description{
-General Statistical Summary
+General Statistical Summary for a Numeric Vector
 }
 \examples{
 qstat_summary(c(1.2, 5.6, 11.2, 4.9, 3.8))
