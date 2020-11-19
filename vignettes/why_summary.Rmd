@@ -17,3 +17,20 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(summary)
 ```
+
+## Why do we need this package?
+
+When beginning work on a completely new data set, it can be difficult to determine where to start if you don't know how your data is distributed. While functions such as mean(), sd() and quantile() allow you to explore the data, this can be time consuming and the output is not the greatest way of visualizing the information in one place.
+
+The summary package is being developed to overcome this problem by providing an array of functions that **combine such initial statistical computations** and provide a **tabular output** for the distribution of numeric vectors in your data.
+
+An example of the type of input and output of one such function in this package, 'qstat_summary' is shown below:
+
+```{r}
+(qstat_summary(1:10))
+```
+
+
+## Future directions
+
+This package is in its early developmental stages, and as such only contains a single function yet. However, the vision is to develop a number of functions like these, that will enable users to ease into data analysis much more efficiently.
