@@ -1,16 +1,17 @@
 Package: summary
-Title: What the Package Does (One Line, Title Case)
+Title: Generates a General Statistical Summary Table for Numeric Vectors
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Khushbu",
+           family = "Patel",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+           email = "khushbup@student.ubc.ca")
+Description: This function computes and generates a quick and general statistical summary table for the numeric vector, x, to enable a quick glance of the distribution of x. The statistics in the table include the mean, standard deviation, maximum and minimum values, and the first, second (median) and third quartiles.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: 
+    stats,
+    tibble
