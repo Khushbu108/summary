@@ -1,4 +1,4 @@
-#' General Statistical Summary
+#' General Statistical Summary for a Numeric Vector
 #'
 #' @param x a numeric vector for which the statistical summary is to be computed. 'x' cannot be a list, and the input vector should not contain NA values unless the 'removeNA' argument is specified to be TRUE.
 #' @param removeNA a logical argument for the handling of NA values in the input vector. The function will display an error message if NA values are contained in the input vector (default set to 'removeNA = FALSE'); specify 'removeNA = TRUE' to remove NA values from the input vector before summary statistics are calculated.
