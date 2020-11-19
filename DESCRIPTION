@@ -16,4 +16,7 @@ Imports:
     stats,
     tibble
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
