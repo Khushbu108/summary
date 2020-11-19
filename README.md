@@ -7,46 +7,144 @@
 
 <!-- badges: end -->
 
-The goal of summary is to …
+The goal of the ‘summary’ package is to provide a set of functions
+available for use during the initial stages of data analysis. This
+package is intended to allow the user to become more familiar with their
+data, by exploring the distribution of the various vectors/columns
+within the data. For this purpose, the functions contained in this R
+package provide visual displays of statistical summary tables on apsects
+of the users’ data.
 
 ## Installation
 
-You can install the released version of summary from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the ‘summary’ package by pasting and running the
+following line in the console of an RStudio session:
 
 ``` r
 devtools::install_github("Khushbu108/summary")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Example Usage
 
 ``` r
 library(summary)
-## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+The ‘qstat\_summary’ function from this package allows a quick glance of
+the distribution of a numeric vector, with the calculated general
+statistics displayed in a tabular format.
+
+Here, we compute some general statistics of a numeric vector:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+(qstat_summary(c(1.2, 5.6, 11.2, 4.9, 3.8)))
+#> # A tibble: 1 x 7
+#>    Mean `Standard Devia~ Minimum `First Quartile` Median `Third Quartile`
+#>   <dbl>            <dbl>   <dbl>            <dbl>  <dbl>            <dbl>
+#> 1  5.34             3.68     1.2              3.8    4.9              5.6
+#> # ... with 1 more variable: Maximum <dbl>
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
+## Package Development
 
-You can also embed plots, for example:
+To begin the development of the ‘summary’ R package, the ‘devtools’
+package was loaded by running the following in the console of a new
+RStudio session:
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` r
+library(devtools)
+```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
+The basic R package infrastructure was then created locally, by running
+**create\_package(“local\_path”)** function in the R console.
+
+This created a ‘summary’ folder at the specified location, containing
+basic files such as ‘NAMESPACE’ and ‘DESCRIPTION’, as well as the ‘R’
+folder and ‘summary’ R project file.
+
+Next, **use\_git()** was run in the R console to initialize Git for
+version control, and allow changes to be committed locally.
+
+Then, **use\_r(“summary”)** was run in the R console, and this created a
+blank ‘qstat\_summary.R’ file within the ‘R’ folder. The
+‘qstat\_summary’ function was defined in this document and the
+changes committed.
+
+### Description and Documentation
+
+The **DESCRIPTION** file was then opened in RStudio and the following
+edits were made manually in the file:
+
+1.  Title
+2.  Author details
+3.  Description
+
+In addition, the **use\_mit\_license()** was run in the R console, which
+created the ‘LICENSE’ files in the main ‘summary’ folder and
+automatically updated the ‘License’ field in the ‘DESCRIPTION’ file.
+
+The license is important to allow other users to access and use the
+functions in this R package, as well as to allow them to modify and work
+on the functions too.
+
+Since the ‘qstat\_summary’ function depends on the ‘stats’ and ‘tibble’
+packages, the following steps were performed to specify this:
+
+1.  Within the ‘qstat\_summary.R’ script, the functions from these
+    packages were loaded using the ‘::’ operators
+
+2.  **use\_package(“stats”)** and **use\_package(“tibble”)** were run in
+    the R console, to allow the addition of these packages under the
+    ‘Imports’ field in the ‘DESCRIPTION’ file.
+
+The ‘roxygen2’ package was then used to document the ‘qstat\_summary’
+function. To do this, the roxygen2 skeleton was added add the top of the
+‘qstat\_summary.R’ script and the title, parameters, return and examples
+tags were edited manually.
+
+To render this documentation, so that this information is available as
+Help for users of the function, **document()** was run in the R console.
+This created a ‘man’ folder, in the main ‘summary’ folder, containing
+the documentation.
+
+### Tests
+
+**use\_testthat()** was run in the R console to create a ‘tests’ folder
+in the main ‘summary’ folder with a dependency on the ‘testthat’
+package, and the necessary files within.
+
+Next, **use\_test(“qstat\_summary”)** was run in the R console, to
+create a blank ‘test-qstat\_summary.R’ script within the ‘testthat’
+folder. This R script was manually edited to include the tests for the
+‘qstat\_summary’ function using the ‘testthat()’ function, and the
+changes committed.
+
+The tests were also checked by running **test()** in the R console to
+ensure that everything was working properly.
+
+### Higher-level documentation
+
+#### Package README file
+
+This was generated by running **use\_readme\_md()** was run in the R
+console, which generated a ‘README.Rmd’ file in the main ‘summary’
+folder.
+
+This file was edited manually to include information about the package,
+including installation details and example usage.
+
+**build\_readme()** was then run in the R console to knit the
+‘README.Rmd’ file to a ‘README.md’ file and run some necessary
+background checks.
+
+#### Vignettes
+
+**use\_vignette("why\_summary)** was run in the R console, to generate a
+‘vignettes’ folder in the main ‘summary’ folder, containing the
+‘why\_summary.Rmd’ file.
+
+This file was manually edited to include information about the reasons
+behind developing the ‘summary’ package and future directions.
+
+**build\_vignettes()** was then run in the R console to knit the
+‘why\_summary.Rmd’ file and run the necessary background checks.
